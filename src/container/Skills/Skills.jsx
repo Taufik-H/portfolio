@@ -1,104 +1,80 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import './Skills.scss';
 import { images } from '../../constant';
-import { useTypewriter, Cursor } from 'react-simple-typewriter';
-
+import { AppWrap } from '../../wrapper';
+import { Typewriter, useTypewriter } from 'react-simple-typewriter';
+import { client, urlFor } from '../../client';
 const Skills = () => {
-  const tabimg = [
-    {
-      experience: '2 month',
-      name: 'react',
-      img: [images.react],
-      content: 'Lorem ipsum, dolor sit',
-    },
-    {
-      experience: '6 month',
-      name: 'Laravel',
-      img: [images.laravel],
-      content: 'I use this framework to create 4 website.',
-    },
-    {
-      experience: '1 Years',
-      name: 'figma',
-      img: [images.figma],
-      content: '.',
-    },
-    {
-      experience: '1,5 Years',
-      name: 'bootstrap',
-      img: [images.bootstrap],
-      content:
-        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi voluptas praesentium optiom voluptatibus.',
-    },
-    {
-      experience: '2 Years',
-      name: 'Tailwindcss',
-      img: [images.tailwindcss],
-      content:
-        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi voluptas pramo quidem voluptatibus.',
-    },
-  ];
   const [selectedTab, setSelectedTab] = useState(0);
-  const [stackName] = useTypewriter({
-    words: ['laravel', 'react', 'figma', 'bootstrap', 'tailwindcss'],
-    loop: 0,
-    onLoopDone: () => console.log(`loop completed after 3 runs.`),
-  });
+  const [skills, setSkills] = useState([]);
+  useEffect(() => {
+    const query = `*[_type == "skills"]{
+     ...
+    }`;
+    client.fetch(query).then((data) => setSkills(data));
+  }, []);
+  const filter = skills.filter((item, index) => index === selectedTab);
+  console.log(filter);
   return (
-    <div className="app__skills container">
-      <div className="text__title-dark" style={{ marginTop: -10 }}>
-        <h4>
-          {' '}
-          i can make <span>something cool</span> with{' '}
-        </h4>
-      </div>
-      <div className="app__skills-content">
-        <div className="app__skills-tech">
-          <div className="app__skills-tech__title">
-            <h5>Technology Stack</h5>
-            <p>
-              <span>{stackName}</span>
-              <Cursor cursorStyle="_" />
-            </p>
-          </div>
-          <div className="app__skills-tech__lists">
-            <div className="app__skills-list__card">
-              {tabimg.map((tab, index) => (
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  onHoverStart={(e) => {}}
-                  onHoverEnd={(e) => {}}
-                  whileTap={{ scale: 0.9 }}
-                  key={index}
-                  onClick={() => setSelectedTab(index)}
-                  className={`app__skills-list__items ${
-                    selectedTab === index ? 'active' : ''
-                  }`}
-                >
-                  <img src={tab.img} alt="" />
-                </motion.div>
+    <div className="app__skills">
+      <div className="">
+        <div className="text__title-dark" style={{ marginTop: 50 }}>
+          <h4>
+            {' '}
+            i can make <span>something cool</span> with{' '}
+          </h4>
+        </div>
+        <div className="app__skills-content">
+          <div className="app__skills-tech">
+            <div className="app__skills-tech__title">
+              <h5>Technology Stack</h5>
+              {filter.map((item) => (
+                <Typewriter
+                  words={[`${item.title}`]}
+                  loop={true}
+                  cursor={true}
+                  cursorStyle="_"
+                  key={item._id}
+                />
               ))}
             </div>
-          </div>
-        </div>
-        <div className="app__skills-tech__desc">
-          <h4>{tabimg[selectedTab].name}</h4>
-          <div className="">
-            {/* <p className="text-content">{tabimg[selectedTab].content}</p> */}
-
-            <div className="app__skills-tech_exp">
-              <img src={tabimg[selectedTab].img} alt="laravel" />
-              <div className="level">
-                <h6>{tabimg[selectedTab].name}</h6>
-                <p>{tabimg[selectedTab].experience}</p>
+            <div className="app__skills-tech__lists">
+              <div className="app__skills-list__card">
+                {skills.map((stack, index) => (
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    onHoverStart={(e) => {}}
+                    onHoverEnd={(e) => {}}
+                    whileTap={{ scale: 0.9 }}
+                    key={index}
+                    onClick={() => setSelectedTab(index)}
+                    className={`app__skills-list__items ${
+                      selectedTab === index ? 'active' : ''
+                    }`}
+                  >
+                    <img src={urlFor(stack.image)} alt="" />
+                  </motion.div>
+                ))}
               </div>
             </div>
           </div>
+          {filter.map((item) => (
+            <div className="app__skills-tech__desc" key={item.title}>
+              <h4>{item.title}</h4>
+              <p className="text-content">{item.description}</p>
+              <div className="app__skills-tech_exp">
+                <img src={urlFor(item.image)} alt="" />
+                <div className="level">
+                  <h6>{item.title}</h6>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
   );
 };
 
-export default Skills;
+export default AppWrap(Skills, 'skills');

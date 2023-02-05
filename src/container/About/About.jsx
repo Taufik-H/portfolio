@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { client, urlFor } from '../../client';
+import { client } from '../../client';
 import { PortableText } from '@portabletext/react';
 import './About.scss';
 import { AppWrap } from '../../wrapper';
@@ -19,7 +19,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className="bg-dark app__about">
+    <div className="app__about">
       <div className="text__title-light">
         <motion.h4
           whileInView={{ y: [100, 0], opacity: [0, 1] }}

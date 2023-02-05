@@ -44,14 +44,14 @@
 
 .container {
   padding: 20px;
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 576px) {
     padding: 10px;
   }
   @media screen and (max-width: 767.98px) {
-    padding: 20px;
+    padding: 15px;
   }
   @media screen and (max-width: 991.98px) {
-    padding: 50px;
+    padding: 20px;
   }
   @media screen and (max-width: 1199.98px) {
     padding: 70px;
@@ -147,19 +147,7 @@
     padding: 4rem 1rem 2rem;
   }
 }
-.copyright {
-  width: 100%;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-
-  p {
-    text-transform: uppercase;
-    color: var(--gray);
-  }
-}
 .app__social {
   display: flex;
   justify-content: flex-end;

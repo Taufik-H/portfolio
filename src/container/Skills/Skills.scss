@@ -1,9 +1,9 @@
 .app__skills {
   width: 100%;
-  min-height: 100vh;
-  padding: 0 20px;
-  @media screen and(min-width:850px) {
-    padding: 93px;
+  height: 100%;
+  padding: 3rem;
+  @media screen and (max-width: 576px) {
+    padding: 15px;
   }
 }
 
@@ -13,28 +13,28 @@
   justify-content: center;
   align-items: center;
 
-  @media screen and(min-width:850px) {
+  @media screen and(min-width:992px) {
     justify-content: space-between;
     flex-direction: row;
   }
   .app__skills-tech__title {
     text-align: center;
-    padding: 0 20px;
+
     p {
       font-weight: lighter;
       color: var(--gray);
     }
-    @media screen and(min-width:850px) {
+    @media screen and(min-width:992px) {
       text-align: start;
+      margin-left: 10px;
     }
   }
   .app__skills-tech__lists {
     width: 100%;
 
     .app__skills-list__card {
-      padding: 10px;
       display: flex;
-      width: auto;
+      width: 100%;
       justify-content: center;
       align-items: flex-start;
       flex-wrap: wrap;
@@ -59,7 +59,7 @@
       img {
         width: 50%;
       }
-      @media screen and(min-width:800px) {
+      @media screen and(min-width:992px) {
         justify-content: flex-start;
         width: 390px;
       }
@@ -69,11 +69,11 @@
   .app__skills-tech__desc {
     margin-top: 20px;
     width: 100%;
-    @media screen and(min-width:800px) {
+    @media screen and(min-width:992px) {
+      width: 50%;
       .text-content {
         min-height: 100px;
       }
-      width: 50%;
     }
     p {
       margin-top: 20px;
