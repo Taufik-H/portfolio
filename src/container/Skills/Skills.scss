@@ -85,7 +85,11 @@
       margin-top: 3rem;
       border-radius: 20px;
       padding: 10px;
-
+      h6 {
+        font-size: 16px;
+        font-style: italic;
+        color: var(--gray);
+      }
       img {
         width: 50px;
         padding: 5px;

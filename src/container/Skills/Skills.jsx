@@ -8,6 +8,7 @@ import { client, urlFor } from '../../client';
 const Skills = () => {
   const [selectedTab, setSelectedTab] = useState(0);
   const [skills, setSkills] = useState([]);
+
   useEffect(() => {
     const query = `*[_type == "skills"]{
      ...
@@ -15,7 +16,9 @@ const Skills = () => {
     client.fetch(query).then((data) => setSkills(data));
   }, []);
   const filter = skills.filter((item, index) => index === selectedTab);
-  console.log(filter);
+  const writer = skills.map((item, index) => item.title);
+  console.log(writer);
+
   return (
     <div className="app__skills">
       <div className="">
@@ -29,15 +32,14 @@ const Skills = () => {
           <div className="app__skills-tech">
             <div className="app__skills-tech__title">
               <h5>Technology Stack</h5>
-              {filter.map((item) => (
-                <Typewriter
-                  words={[`${item.title}`]}
-                  loop={true}
-                  cursor={true}
-                  cursorStyle="_"
-                  key={item._id}
-                />
-              ))}
+
+              <Typewriter
+                words={writer}
+                loop={true}
+                cursor={true}
+                cursorStyle="_"
+                key={writer}
+              />
             </div>
             <div className="app__skills-tech__lists">
               <div className="app__skills-list__card">
