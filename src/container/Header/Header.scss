@@ -1,0 +1,215 @@
+.app__header {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  @media screen and (min-width: 992px) {
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+  }
+}
+.app__header-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  margin-top: 3rem;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 3rem;
+    padding: 2rem;
+  }
+  @media screen and (min-width: 992px) {
+    justify-content: center;
+    justify-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0;
+  }
+}
+
+.app__header-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  @media screen and (min-width: 992px) {
+    align-items: flex-start;
+    justify-content: center;
+  }
+}
+
+.app__header-badge {
+  display: flex;
+  box-shadow: 0px 4px 20px rgba(150, 150, 150, 0.25);
+  border-radius: 11px;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  gap: 14px;
+  width: fit-content;
+  height: fit-content;
+  background-color: white;
+
+  h4 {
+    color: var(--black);
+    font-style: italic;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+  }
+  @media screen and(min-width:768px) {
+    font-size: 16px;
+    padding: 5px 10px;
+    h4 {
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+  @media screen and(min-width:992px) {
+  }
+}
+
+.app__header-name {
+  padding: 0 20px;
+  h1 {
+    font-style: italic;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: var(--black);
+
+    span {
+      color: var(--primary);
+      margin-left: 5px;
+    }
+  }
+  @media screen and(min-width:768px) {
+    padding: 0;
+    h1 {
+      font-size: 42px;
+      font-weight: 700;
+    }
+  }
+  @media screen and(min-width:992px) {
+    padding: 0;
+    h1 {
+      font-size: 47px;
+      font-weight: 700;
+    }
+  }
+}
+
+.app__header-based {
+  color: var(--black);
+  text-transform: capitalize;
+  font-style: italic;
+  span {
+    text-transform: uppercase;
+    color: var(--primary);
+    font-weight: 500;
+  }
+}
+.app__header-category {
+  display: flex;
+  gap: 14px;
+  .app__header-category__card {
+    box-shadow: 0px 4px 10px rgba(214, 214, 214, 0.37);
+    border-radius: 33px;
+    padding: 10px;
+    width: 100px;
+
+    p {
+      text-align: center;
+      width: 100%;
+      color: var(--primary);
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 15px;
+      height: 15px;
+    }
+  }
+}
+.app__header-stack {
+  display: flex;
+  height: 100%;
+  gap: 14px;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .app__header-stack__items {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0px 4px 10px rgba(214, 214, 214, 0.57);
+    padding: 2px;
+    img {
+      padding: 4px;
+      width: 90%;
+      height: 90%;
+      object-fit: contain;
+    }
+  }
+}
+.app__header-button {
+  margin-top: 20px;
+  background-color: var(--primary);
+  padding: 7px;
+  border-radius: 7px;
+  border: none;
+
+  a {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: white;
+  }
+  svg {
+    width: 23px;
+    height: 23px;
+  }
+}
+
+// styling right side on web i mean the circle and the avatar 😂
+
+.app__header-image {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin-left: 10px;
+  justify-content: center;
+  align-items: flex-end;
+  justify-items: center;
+
+  img {
+    margin-top: 30px;
+    object-fit: contain;
+    width: 100%;
+    max-height: 100%;
+    padding: 2rem;
+    margin-bottom: -2rem;
+  }
+  @media screen and(min-width:992px) {
+    justify-content: flex-end;
+    img {
+      margin-top: -1rem;
+      max-width: 75%;
+      margin-bottom: 0;
+    }
+  }
+}

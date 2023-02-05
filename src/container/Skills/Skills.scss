@@ -1,0 +1,101 @@
+.app__skills {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 20px;
+  @media screen and(min-width:850px) {
+    padding: 93px;
+  }
+}
+
+.app__skills-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and(min-width:850px) {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  .app__skills-tech__title {
+    text-align: center;
+    padding: 0 20px;
+    p {
+      font-weight: lighter;
+      color: var(--gray);
+    }
+    @media screen and(min-width:850px) {
+      text-align: start;
+    }
+  }
+  .app__skills-tech__lists {
+    width: 100%;
+
+    .app__skills-list__card {
+      padding: 10px;
+      display: flex;
+      width: auto;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      .app__skills-list__items {
+        display: flex;
+
+        justify-content: center;
+        justify-items: flex-start;
+        align-items: center;
+        flex-direction: column;
+        width: 80px;
+        height: 80px;
+        border-radius: 12px;
+        background-color: var(--bg-dark);
+
+        box-shadow: 0px 4px 10px rgba(214, 214, 214, 0.57);
+        padding: 2px;
+        object-fit: contain;
+      }
+      img {
+        width: 50%;
+      }
+      @media screen and(min-width:800px) {
+        justify-content: flex-start;
+        width: 390px;
+      }
+    }
+  }
+
+  .app__skills-tech__desc {
+    margin-top: 20px;
+    width: 100%;
+    @media screen and(min-width:800px) {
+      .text-content {
+        min-height: 100px;
+      }
+      width: 50%;
+    }
+    p {
+      margin-top: 20px;
+    }
+    .app__skills-tech_exp {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--black);
+      margin-top: 3rem;
+      border-radius: 20px;
+      padding: 10px;
+
+      img {
+        width: 50px;
+        padding: 5px;
+      }
+      div {
+        margin-left: 10px;
+        p {
+          margin-top: 0%;
+        }
+      }
+    }
+  }
+}

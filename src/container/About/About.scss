@@ -1,0 +1,38 @@
+.app__about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  @media screen and (min-width: 750px) {
+    padding: 93px;
+  }
+}
+
+.path {
+  width: 50px;
+  height: 0;
+  color: white;
+  border-radius: 10px;
+  border: 3px solid #3155d6;
+  margin-bottom: 20px;
+}
+
+div {
+  .app__about-content {
+    font-weight: 400;
+    font-size: 16px;
+    color: white;
+    text-align: justify;
+    line-height: 133.52%;
+    padding-bottom: 50px;
+
+    /* or 21px */
+  }
+  @media screen and (min-width: 750px) {
+    .app__about-content {
+      text-transform: capitalize;
+    }
+  }
+}

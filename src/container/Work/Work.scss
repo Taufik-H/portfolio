@@ -1,0 +1,21 @@
+.app__work {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-dark);
+}
+.work__category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  margin-top: 20px;
+
+  .work__button {
+    background-color: var(--gray);
+    color: white;
+    padding: 4px 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+}
