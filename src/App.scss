@@ -98,7 +98,7 @@
   align-items: center;
 
   h4 {
-    font-size: 24px;
+    font-size: 20px;
     color: var(--black);
     span {
       color: var(--primary);
@@ -120,7 +120,7 @@
   align-items: center;
 
   h4 {
-    font-size: 24px;
+    font-size: 20px;
     color: white;
     span {
       color: var(--primary);
@@ -132,6 +132,12 @@
 }
 .active {
   border: 3px solid var(--primary);
+}
+.nav__active {
+  color: var(--primary);
+}
+.unactive {
+  color: var(--secondary);
 }
 .app__container {
   width: 100%;

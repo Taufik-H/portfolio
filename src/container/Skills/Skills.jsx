@@ -17,7 +17,6 @@ const Skills = () => {
   }, []);
   const filter = skills.filter((item, index) => index === selectedTab);
   const writer = skills.map((item, index) => item.title);
-  console.log(writer);
 
   return (
     <div className="app__skills">
@@ -39,6 +38,7 @@ const Skills = () => {
                 cursor={true}
                 cursorStyle="_"
                 key={writer}
+                className="typing"
               />
             </div>
             <div className="app__skills-tech__lists">
@@ -69,6 +69,7 @@ const Skills = () => {
                 <img src={urlFor(item.image)} alt="" />
                 <div className="level">
                   <h6>{item.title}</h6>
+                  <p>{item.totalprojects}</p>
                 </div>
               </div>
             </div>

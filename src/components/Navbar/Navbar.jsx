@@ -5,7 +5,10 @@ import { motion } from 'framer-motion';
 import { HiBars3BottomLeft, HiChevronDoubleRight } from 'react-icons/hi2';
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
-
+  const [active, setActive] = useState(0);
+  const handleActive = (index) => {
+    setActive(index);
+  };
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
@@ -13,10 +16,16 @@ const Navbar = () => {
       </div>
       <ul className="app__navbar-links">
         {/* create navbar item */}
-        {['home', 'about', 'work', 'skills', 'testimonial', 'contact'].map(
-          (item) => (
+        {['home', 'about', 'skills', 'work', 'testimonial', 'contact'].map(
+          (item, index) => (
             <li className="app__flex p-text" key={`link-${item}`}>
-              <a href={`#${item}`}>{item}</a>
+              <a
+                href={`#${item}`}
+                onClick={() => handleActive(index)}
+                className={index === active ? 'nav__active' : 'unactive'}
+              >
+                {item}
+              </a>
               <div />
             </li>
           )
@@ -35,13 +44,17 @@ const Navbar = () => {
               {[
                 'home',
                 'about',
-                'work',
                 'skills',
+                'work',
                 'testimonial',
                 'contact',
-              ].map((item) => (
+              ].map((item, index) => (
                 <li key={item}>
-                  <a href={`#${item}`} onClick={() => setToggle(false)}>
+                  <a
+                    href={`#${item}`}
+                    onClick={(() => setToggle(false), handleActive(index))}
+                    className={index === active ? 'nav__active' : ''}
+                  >
                     {item}
                   </a>
                 </li>
