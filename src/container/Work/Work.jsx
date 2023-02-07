@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { client, urlFor } from '../../client';
+import { FaGithub, FaEye } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { AppWrap } from '../../wrapper';
 import './Work.scss';
 
 function Work() {
   const [activetags, setActivetags] = useState(0);
-  const [filter, setFilter] = useState(0);
-  const [work, setWork] = useState([]);
   const [tags, setTags] = useState([]);
+
+  // video
+  const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
+  const [filterWork, setFilterWork] = useState([]);
+  const [work, setWork] = useState([]);
   useEffect(() => {
     const queryWork = `*[_type == "project"]{
       ...,
@@ -22,10 +26,24 @@ function Work() {
       }`;
     const queryTag = `*[_type == "tag"]`;
 
-    client.fetch(queryWork).then((data) => setWork(data));
+    client.fetch(queryWork).then((data) => {
+      setWork(data);
+      setFilterWork(data);
+    });
     client.fetch(queryTag).then((data) => setTags(data));
   }, []);
 
+  const handleFilterWork = (item) => {
+    setAnimateCard([{ x: 100, opacity: 0 }]);
+    setTimeout(() => {
+      setAnimateCard([{ x: 0, opacity: 1 }]);
+      if (item === 'All') {
+        setFilterWork(work);
+      } else {
+        setFilterWork(work.filter((work) => work.tags.includes(item)));
+      }
+    }, 500);
+  };
   return (
     <div className="app__work ">
       <div className="app__work-content">
@@ -60,7 +78,9 @@ function Work() {
                   whileTap={{ scale: 0.8 }}
                   onHoverStart={(e) => {}}
                   onHoverEnd={(e) => {}}
-                  onClick={() => setActivetags(index)}
+                  onClick={() =>
+                    setActivetags(index) & handleFilterWork(tags.name)
+                  }
                   className={
                     index === activetags ? 'active_tag' : 'unactive_tag'
                   }
@@ -70,33 +90,58 @@ function Work() {
                 </motion.button>
               ))}
             </div>
+
             <div className="app__work-project-card">
-              {work.map((work, index) => (
-                <div className="app__card" key={work._id}>
+              {filterWork.map((work, index) => (
+                <motion.div
+                  animate={animateCard}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{
+                    duration: [0.3],
+                    ease: 'easeInOut',
+                    delayChildren: 0.5,
+                  }}
+                  onHoverStart={(e) => {}}
+                  onHoverEnd={(e) => {}}
+                  className="app__card"
+                  key={work._id}
+                >
                   <div className="">
                     <div className="image__preview">
                       <img src={urlFor(work.image.asset.url)} alt={work.name} />
+                      <div className="work__icon">
+                        <motion.div>
+                          <a href={work.linksource}>
+                            <FaGithub />
+                          </a>
+                        </motion.div>
+                        <motion.div>
+                          <a href={work.linkdemo}>
+                            <FaEye />
+                          </a>
+                        </motion.div>
+                      </div>
                     </div>
                     <div className="work__detail">
-                      <h3>{work.name}</h3>
+                      <div className="work__title">
+                        <h3>{work.name}</h3>
+                      </div>
+
                       <div className="work__tag">
-                        {work.tag.map((tag) => (
-                          <div key={tag._id}>
-                            <p>{tag.name}</p>
-                          </div>
-                        ))}
+                        <div>
+                          <p>{work.tags[0]}</p>
+                        </div>
                       </div>
                       <div className="work__tool">
                         {work.tool.map((tool, index) => (
                           <div className="tool__image" key={tool._id}>
                             <img src={urlFor(tool.image)} alt={tool.name} />
-                            {console.log(tool.image)}
                           </div>
                         ))}
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

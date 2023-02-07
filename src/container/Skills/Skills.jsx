@@ -16,7 +16,7 @@ const Skills = () => {
     client.fetch(query).then((data) => setSkills(data));
   }, []);
   const filter = skills.filter((item, index) => index === selectedTab);
-  const writer = skills.map((item, index) => item.title);
+  const writer = skills.map((item) => item.title);
 
   return (
     <div className="app__skills">

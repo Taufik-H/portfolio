@@ -1,6 +1,5 @@
 .app__work {
   width: 100%;
-  height: 100%;
 }
 .app__work-content {
   margin-top: 5rem;
@@ -17,7 +16,7 @@
 
   button {
     color: white;
-
+    cursor: pointer;
     font-size: 16px;
     padding: 4px 6px;
     border: none;
@@ -26,6 +25,7 @@
     &:hover {
       background-color: var(--primary);
       color: white;
+      transition: all 0.3s ease-in;
     }
   }
 }
@@ -46,80 +46,141 @@
   @media screen and(min-width:768px) {
     flex-direction: row;
   }
-  .app__card {
-    width: 300px;
-    height: 360px;
-    background-color: white;
-    padding: 10px;
-    border-radius: 15px;
-    @media screen and(min-width:768px) {
-      width: 230px;
-      height: 300px;
-    }
-    .image__preview {
+}
+.app__card {
+  width: 300px;
+  height: 360px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 15px;
+  @media screen and(min-width:768px) {
+    width: 230px;
+    height: 300px;
+  }
+  .image__preview {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    img {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+
+      object-fit: cover;
+      object-position: center;
       width: 100%;
-      height: 200px;
-      img {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
+      height: 100%;
+      border-radius: 10px;
+    }
+    @media screen and(min-width:768px) {
+      height: 160px;
+    }
+  }
+  .work__detail {
+    padding: 4px 5px;
+    h3 {
+      text-align: start;
+      padding: 1rem 0;
+      font-size: 14px;
+    }
+
+    .work__tag {
+      padding: 8px 6px;
+      width: 100px;
+      border-radius: 5px;
+      background-color: rgb(229, 229, 255);
+      div {
+        p {
+          font-weight: 100;
+          color: var(--primary);
+          font-size: 14px;
+        }
       }
       @media screen and(min-width:768px) {
-        height: 160px;
-      }
-    }
-    .work__detail {
-      padding: 4px 5px;
-      h3 {
-        text-align: start;
-        padding: 1rem 0;
-        font-size: 14px;
-      }
-
-      .work__tag {
-        padding: 8px 6px;
-        width: 100px;
-        border-radius: 5px;
-        background-color: rgb(229, 229, 255);
+        padding: 4px 3px;
+        width: 80px;
         div {
           p {
-            font-weight: 100;
-            color: var(--primary);
-            font-size: 14px;
-          }
-        }
-        @media screen and(min-width:768px) {
-          padding: 4px 3px;
-          width: 80px;
-          div {
-            p {
-              font-size: 12px;
-            }
+            font-size: 12px;
           }
         }
       }
-      .work__tool {
-        padding: 1rem 0;
-        display: flex;
-        gap: 10px;
-        .tool__image {
-          width: 25px;
-          height: 25px;
+    }
+    .work__tool {
+      padding: 1rem 0;
+      display: flex;
+      gap: 10px;
+      .tool__image {
+        width: 25px;
+        height: 25px;
 
-          img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-          }
-        }
-        @media screen and(min-width:768px) {
-          .tool__image {
-            width: 17px;
-            height: 17px;
-          }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
         }
       }
+      @media screen and(min-width:768px) {
+        .tool__image {
+          width: 17px;
+          height: 17px;
+        }
+      }
+    }
+  }
+  &:hover {
+    box-shadow: 0px 7px 20px rgba(0, 0, 0, 0.5);
+    transition: all 0.5 ease-in;
+  }
+}
+
+.work__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.work__icon {
+  display: flex;
+  padding: 5px;
+  justify-content: end;
+  gap: 10px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  div {
+    height: 20px;
+    width: 20px;
+    background-color: rgba(70, 70, 70, 0.452);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    a {
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      svg {
+        height: 10px;
+        width: 10px;
+        color: white;
+        transition: all 0.3 ease;
+      }
+    }
+    &:hover {
+      background-color: var(--gray);
+      a {
+        svg {
+          transition: all 0.2s ease-in;
+        }
+      }
+
+      transition: all 0.2s ease-in;
     }
   }
 }
