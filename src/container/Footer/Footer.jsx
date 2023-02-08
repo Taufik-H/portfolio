@@ -61,7 +61,7 @@ const Footer = () => {
               <div className="btn-image">
                 <img src={images.whatsapp} alt="" />
               </div>
-              <a href="wa.me/6283842061886">(+62) 838-4206-1886</a>
+              <a href="https://wa.me/6283842061886">(+62) 838-4206-1886</a>
             </div>
           </div>
           <h5>or</h5>
