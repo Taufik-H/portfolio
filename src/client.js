@@ -7,6 +7,7 @@ export const client = sanityClient({
   apiVersion: '2021-10-21',
   useCdn: true,
   token: process.env.REACT_APP_SANITY_PROJECT_TOKEN,
+  withCredentials: true,
 });
 
 const builder = imageUrlBuilder(client);

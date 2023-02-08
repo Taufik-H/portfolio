@@ -19,15 +19,16 @@ const About = () => {
   }, []);
 
   return (
-    <div className="app__about">
+    <motion.div
+      whileInView={{ y: [100, 50, 0], opacity: [0, 0, 1] }}
+      transition={{ duration: 0.5 }}
+      className="app__about"
+    >
       <div className="text__title-light">
-        <motion.h4
-          whileInView={{ y: [100, 0], opacity: [0, 1] }}
-          transition={{ duration: [0.5], ease: 'easeInOut' }}
-        >
+        <h4>
           I will <span className="text-primary">Introduce{''}</span>
           my self
-        </motion.h4>
+        </h4>
       </div>
 
       <div className="text-md app__flex">
@@ -39,7 +40,7 @@ const About = () => {
           <PortableText value={abouts.about} />
         </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

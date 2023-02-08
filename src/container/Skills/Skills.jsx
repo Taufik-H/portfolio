@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import './Skills.scss';
-import { images } from '../../constant';
 import { AppWrap } from '../../wrapper';
-import { Typewriter, useTypewriter } from 'react-simple-typewriter';
+import { Typewriter } from 'react-simple-typewriter';
 import { client, urlFor } from '../../client';
 const Skills = () => {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -19,7 +18,11 @@ const Skills = () => {
   const writer = skills.map((item) => item.title);
 
   return (
-    <div className="app__skills">
+    <motion.div
+      whileInView={{ y: [100, 50, 0], opacity: [0, 0, 1] }}
+      transition={{ duration: 0.5 }}
+      className="app__skills"
+    >
       <div className="">
         <div className="text__title-dark" style={{ marginTop: 50 }}>
           <h4>
@@ -76,7 +79,7 @@ const Skills = () => {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

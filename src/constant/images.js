@@ -1,21 +1,7 @@
 import logo from '../assets/Taufik-H.png';
-import avatar from '../assets/avatar.png';
 import bg from '../assets/bg.png';
-import circle from '../assets/circle.png';
-import react from '../assets/react.png';
-import bootstrap from '../assets/bootstrap.png';
-import laravel from '../assets/laravel.png';
-import figma from '../assets/figma.png';
-import tailwindcss from '../assets/tailwindcss.png';
+import email from '../assets/gmail.png';
+import whatsapp from '../assets/whatsapp.png';
+import thanks from '../assets/thanks.png';
 
-export default {
-  logo,
-  avatar,
-  bg,
-  circle,
-  react,
-  bootstrap,
-  laravel,
-  figma,
-  tailwindcss,
-};
+export default { logo, bg, email, whatsapp, thanks };

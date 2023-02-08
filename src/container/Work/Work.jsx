@@ -9,7 +9,6 @@ function Work() {
   const [activetags, setActivetags] = useState(0);
   const [tags, setTags] = useState([]);
 
-  // video
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
   const [filterWork, setFilterWork] = useState([]);
   const [work, setWork] = useState([]);
@@ -45,29 +44,16 @@ function Work() {
     }, 500);
   };
   return (
-    <div className="app__work ">
+    <motion.div
+      whileInView={{ y: [100, 50, 0], opacity: [0, 0, 1] }}
+      transition={{ duration: 0.5 }}
+      className="app__work "
+    >
       <div className="app__work-content">
         <div className="text__title-light">
           <h4>
             {' '}
             this is <span>my portfolio</span> projects{' '}
-            {/* {work.map((item, index) => (
-              <div className="" key={index}>
-                <h1>{item.name}</h1>
-                {item.tool.map((tool) => (
-                  <div className="" key={tool.name}>
-                    <h1>{tool.name}</h1>
-                  </div>
-                ))}
-                {item.tag.map((tag) => (
-                  <div className="" key={tag.name}>
-                    <h1>{tag.name}</h1>
-                  </div>
-                ))}
-
-                <img src={urlFor(item.image.asset.url)} alt="" />
-              </div>
-            ))} */}
           </h4>
           <div className="app__work-project">
             <div className="app__work-project__filter">
@@ -147,7 +133,7 @@ function Work() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

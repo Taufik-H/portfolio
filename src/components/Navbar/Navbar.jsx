@@ -9,6 +9,7 @@ const Navbar = () => {
   const handleActive = (index) => {
     setActive(index);
   };
+  console.log(toggle);
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
@@ -22,7 +23,7 @@ const Navbar = () => {
               <a
                 href={`#${item}`}
                 onClick={() => handleActive(index)}
-                className={index === active ? 'nav__active' : 'unactive'}
+                className={'text-secondary'}
               >
                 {item}
               </a>
@@ -33,13 +34,19 @@ const Navbar = () => {
       </ul>
       {/* mobile */}
       <div className="app__navbar-menu">
-        <HiBars3BottomLeft onClick={() => setToggle(true)} />
+        <HiBars3BottomLeft
+          onClick={() => setToggle(true)}
+          style={{ cursor: 'pointer' }}
+        />
         {toggle && (
           <motion.div
             whileInView={{ x: [300, 0] }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
           >
-            <HiChevronDoubleRight onClick={() => setToggle(false)} />
+            <HiChevronDoubleRight
+              onClick={() => setToggle(false)}
+              style={{ cursor: 'pointer' }}
+            />
             <ul>
               {[
                 'home',
@@ -52,7 +59,7 @@ const Navbar = () => {
                 <li key={item}>
                   <a
                     href={`#${item}`}
-                    onClick={(() => setToggle(false), handleActive(index))}
+                    onClick={() => setToggle(false)}
                     className={index === active ? 'nav__active' : ''}
                   >
                     {item}

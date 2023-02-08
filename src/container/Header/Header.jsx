@@ -5,36 +5,12 @@ import { client, urlFor } from '../../client';
 import './Header.scss';
 import { images } from '../../constant';
 import { AppWrap } from '../../wrapper';
-
+import { queryAuthor } from '../../data';
 const Header = () => {
   const [headerdata, setHeaderdata] = useState([]);
   useEffect(() => {
-    const query = `*[_type == "author"]{
-      _id,
-      name,
-      lastname,
-      country,
-      image{
-        asset->{
-          _id,
-          url
-        }
-      },
-      work[]{_id,title},
-      skills[]->{
-        _id,
-        title,
-        image{
-          asset->{
-            _id,
-            url
-          }
-        }
-      }
-    }`;
-
     client
-      .fetch(query)
+      .fetch(queryAuthor)
       .then((data) => setHeaderdata(data))
       .catch(console.error);
   }, []);
@@ -50,7 +26,6 @@ const Header = () => {
                 transition={{
                   duration: [0.37],
                   ease: 'easeIn',
-                  delay: [0.5],
                 }}
                 className="app__header-badge"
               >
@@ -59,7 +34,7 @@ const Header = () => {
               </motion.div>
               <motion.div
                 whileInView={{ opacity: [0, 1] }}
-                transition={{ duration: [0.5], ease: 'easeIn', delay: [0.4] }}
+                transition={{ duration: [0.5], ease: 'easeIn' }}
                 className="app__header-name"
               >
                 <h1>
@@ -69,7 +44,7 @@ const Header = () => {
               </motion.div>
               <motion.div
                 whileInView={{ opacity: [0, 1] }}
-                transition={{ duration: [0.5], ease: 'easeIn', delay: [0.6] }}
+                transition={{ duration: [0.5], ease: 'easeIn' }}
                 className="app__header-based"
               >
                 <p>
@@ -83,7 +58,6 @@ const Header = () => {
                     transition={{
                       duration: [0.5],
                       ease: 'easeIn',
-                      delay: [0.8],
                     }}
                     className="app__header-category__card"
                     key={work.title}
@@ -112,10 +86,10 @@ const Header = () => {
 
               <motion.button
                 whileInView={{ opacity: [0, 1] }}
-                transition={{ duration: [1], ease: 'easeIn', delay: [0.3] }}
+                transition={{ duration: [1], ease: 'easeIn' }}
                 className="app__header-button"
               >
-                <a href="#">
+                <a href="#contact">
                   <p>questions</p> <IoMailOutline />
                 </a>
               </motion.button>
@@ -123,7 +97,7 @@ const Header = () => {
             <div className="app__header-image">
               <motion.img
                 whileInView={{ opacity: [0, 1] }}
-                transition={{ duration: [0.4], ease: 'easeOut' }}
+                transition={{ duration: [0.5], ease: 'easeIn' }}
                 className="app__header-image__avatar"
                 src={header.image.asset.url}
                 alt="images"

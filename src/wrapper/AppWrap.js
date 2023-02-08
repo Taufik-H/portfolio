@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavigationDots, SocialMedia } from '../components';
-import { images } from '../constant';
 
 const AppWrap = (Component, idName, classNames, styles) =>
   function HOC() {
