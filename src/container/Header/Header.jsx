@@ -88,15 +88,14 @@ const Header = () => {
                 ))}
               </div>
 
-              <motion.button
+              <motion.a
                 whileInView={{ opacity: [0, 1] }}
                 transition={{ duration: [1], ease: 'easeIn' }}
                 className="app__header-button"
+                href="#contact"
               >
-                <a href="#contact">
-                  <p>questions</p> <IoMailOutline />
-                </a>
-              </motion.button>
+                <p>questions</p> <IoMailOutline />
+              </motion.a>
             </div>
             <div className="app__header-image">
               <motion.img

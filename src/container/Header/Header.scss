@@ -161,22 +161,18 @@
 .app__header-button {
   margin-top: 20px;
   background-color: var(--primary);
+  display: flex;
+  gap: 3px;
   padding: 7px;
   border-radius: 7px;
   border: none;
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: capitalize;
+  color: white;
 
-  a {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 6px;
-    text-decoration: none;
-    text-transform: capitalize;
-    color: white;
-  }
   svg {
     width: 23px;
     height: 23px;
