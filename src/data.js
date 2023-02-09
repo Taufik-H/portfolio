@@ -21,9 +21,24 @@ export const queryAuthor = `*[_type == "author"]{
     }
   }
 }`;
-export const queryAbour = `*[_type == "testimonial"]`;
-export const querySkills = `*[_type == "testimonial"]`;
-export const queryWork = `*[_type == "testimonial"]`;
+export const queryAbout = `*[_type == "author"]{
+  about[]{
+    ...,
+  }}`;
+export const queryEcperience = `*[_type == "experience"]`;
+export const querySkills = `*[_type == "skills"]{
+  ...
+ }`;
+export const queryWork = `*[_type == "project"]{
+  ...,
+  tool[]->,
+  tag[]->,
+  image{
+    asset->{
+      url
+    }
+  }
+  }`;
 export const queryTestimonial = `*[_type == "testimonial"]{
   ...,
   image{

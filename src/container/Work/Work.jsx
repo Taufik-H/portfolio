@@ -4,6 +4,7 @@ import { FaGithub, FaEye } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { AppWrap } from '../../wrapper';
 import './Work.scss';
+import { queryWork } from '../../data';
 
 function Work() {
   const [activetags, setActivetags] = useState(0);
@@ -13,16 +14,6 @@ function Work() {
   const [filterWork, setFilterWork] = useState([]);
   const [work, setWork] = useState([]);
   useEffect(() => {
-    const queryWork = `*[_type == "project"]{
-      ...,
-      tool[]->,
-      tag[]->,
-      image{
-        asset->{
-          url
-        }
-      }
-      }`;
     const queryTag = `*[_type == "tag"]`;
 
     client.fetch(queryWork).then((data) => {

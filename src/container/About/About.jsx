@@ -4,16 +4,12 @@ import { client } from '../../client';
 import { PortableText } from '@portabletext/react';
 import './About.scss';
 import { AppWrap } from '../../wrapper';
+import { queryAbout } from '../../data';
 const About = () => {
   const [abouts, setAbouts] = useState([]);
   useEffect(() => {
-    const query = `*[_type == "author"]{
-      about[]{
-        ...,
-      }}`;
-
     client
-      .fetch(query)
+      .fetch(queryAbout)
       .then((data) => setAbouts(data[0]))
       .catch(console.error);
   }, []);

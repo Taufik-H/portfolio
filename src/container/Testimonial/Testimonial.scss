@@ -71,7 +71,6 @@
 }
 .testimonial__icon {
   display: flex;
-  cursor: pointer;
   justify-content: center;
   align-items: center;
   width: 40px;
@@ -81,6 +80,7 @@
   box-shadow: 0 4px 12px rgba(54, 54, 54, 0.1);
 }
 .app__testimonial-btn {
+  cursor: pointer;
   height: 50px;
   margin-top: 2rem;
   display: flex;

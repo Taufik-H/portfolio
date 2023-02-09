@@ -4,15 +4,14 @@ import './Skills.scss';
 import { AppWrap } from '../../wrapper';
 import { Typewriter } from 'react-simple-typewriter';
 import { client, urlFor } from '../../client';
+import { queryEcperience, querySkills } from '../../data';
 const Skills = () => {
   const [selectedTab, setSelectedTab] = useState(0);
   const [skills, setSkills] = useState([]);
-
+  const [experience, setExperience] = useState([]);
   useEffect(() => {
-    const query = `*[_type == "skills"]{
-     ...
-    }`;
-    client.fetch(query).then((data) => setSkills(data));
+    client.fetch(querySkills).then((data) => setSkills(data));
+    client.fetch(queryEcperience).then((data) => setExperience(data));
   }, []);
   const filter = skills.filter((item, index) => index === selectedTab);
   const writer = skills.map((item) => item.title);
@@ -27,7 +26,7 @@ const Skills = () => {
         <div className="text__title-dark" style={{ marginTop: 50 }}>
           <h1>
             {' '}
-            i can make <span>something cool</span> with{' '}
+            My <span>Skills</span> and <span>experiences</span>
           </h1>
         </div>
         <div className="app__skills-content">
@@ -47,7 +46,7 @@ const Skills = () => {
             <div className="app__skills-tech__lists">
               <div className="app__skills-list__card">
                 {skills.map((stack, index) => (
-                  <motion.div
+                  <motion.button
                     whileHover={{ scale: 1.1 }}
                     onHoverStart={(e) => {}}
                     onHoverEnd={(e) => {}}
@@ -59,15 +58,14 @@ const Skills = () => {
                     }`}
                   >
                     <img src={urlFor(stack.image)} alt="" />
-                  </motion.div>
+                  </motion.button>
                 ))}
               </div>
             </div>
           </div>
           {filter.map((item) => (
             <div className="app__skills-tech__desc" key={item.title}>
-              <h4>{item.title}</h4>
-              <p className="text-content">{item.description}</p>
+              <p>Experiences :</p>
               <div className="app__skills-tech_exp">
                 <img src={urlFor(item.image)} alt="" />
                 <div className="level">
@@ -75,6 +73,17 @@ const Skills = () => {
                   <p>{item.totalprojects}</p>
                 </div>
               </div>
+              {experience.map((experience) => (
+                <div className="experience" key={experience._id}>
+                  <div className="experience-work">
+                    <div className="exwrap">
+                      <h2>{experience.year}</h2>
+                      <div className="jobdesk">{experience.jobdesk}</div>
+                    </div>
+                    <p>{experience.descripton}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           ))}
         </div>
