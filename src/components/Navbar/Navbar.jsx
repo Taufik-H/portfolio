@@ -34,7 +34,7 @@ const Navbar = () => {
         )}
       </ul>
       {/* mobile */}
-      <div className="app__navbar-menu">
+      <button className="app__navbar-menu">
         <HiBars3BottomLeft
           onClick={() => setToggle(true)}
           style={{ cursor: 'pointer' }}
@@ -71,7 +71,7 @@ const Navbar = () => {
             </ul>
           </motion.div>
         )}
-      </div>
+      </button>
     </nav>
   );
 };

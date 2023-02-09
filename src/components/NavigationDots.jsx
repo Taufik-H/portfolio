@@ -8,6 +8,7 @@ function NavigationDots({ active }) {
           <a
             href={`#${item}`}
             key={item + index}
+            name="indicator"
             className="app__navigation-dot"
             style={active === item ? { backgroundColor: '#3155d6' } : {}}
           />
