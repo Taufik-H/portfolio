@@ -24,6 +24,7 @@ const Navbar = () => {
                 href={`#${item}`}
                 onClick={() => handleActive(index)}
                 className={'text-secondary'}
+                aria-label={`${item}`}
               >
                 {item}
               </a>
@@ -61,6 +62,7 @@ const Navbar = () => {
                     href={`#${item}`}
                     onClick={() => setToggle(false)}
                     className={index === active ? 'nav__active' : ''}
+                    aria-label={`${item}`}
                   >
                     {item}
                   </a>

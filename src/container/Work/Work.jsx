@@ -97,12 +97,12 @@ function Work() {
                       <img src={urlFor(work.image.asset.url)} alt={work.name} />
                       <div className="work__icon">
                         <motion.div>
-                          <a href={work.linksource}>
+                          <a href={work.linksource} aria-label="source code">
                             <FaGithub />
                           </a>
                         </motion.div>
                         <motion.div>
-                          <a href={work.linkdemo}>
+                          <a href={work.linkdemo} aria-label="demo">
                             <FaEye />
                           </a>
                         </motion.div>
