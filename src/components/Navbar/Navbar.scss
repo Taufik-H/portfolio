@@ -14,14 +14,11 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-
+  width: 90px;
+  height: 20px;
   img {
-    width: 90px;
-    height: 20px;
-    @media screen and (min-width: 2000) {
-      width: 180;
-      height: 40px;
-    }
+    width: 100%;
+    object-fit: contain;
   }
 }
 .app__navbar-links {

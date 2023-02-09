@@ -79,7 +79,11 @@ const Header = () => {
                     className="app__header-stack__items"
                     key={`stack-${index}`}
                   >
-                    <img src={urlFor(stack.image.asset.url)} alt="" />
+                    <img
+                      loading="lazy"
+                      src={urlFor(stack.image.asset.url)}
+                      alt=""
+                    />
                   </motion.div>
                 ))}
               </div>

@@ -9,7 +9,7 @@ const Navbar = () => {
   const handleActive = (index) => {
     setActive(index);
   };
-  console.log(toggle);
+
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
