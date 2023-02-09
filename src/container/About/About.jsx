@@ -25,10 +25,10 @@ const About = () => {
       className="app__about"
     >
       <div className="text__title-light">
-        <h4>
+        <h1>
           I will <span className="text-primary">Introduce{''}</span>
           my self
-        </h4>
+        </h1>
       </div>
 
       <div className="text-md app__flex">

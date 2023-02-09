@@ -51,10 +51,10 @@ function Work() {
     >
       <div className="app__work-content">
         <div className="text__title-light">
-          <h4>
+          <h1>
             {' '}
             this is <span>my portfolio</span> projects{' '}
-          </h4>
+          </h1>
           <div className="app__work-project">
             <div className="app__work-project__filter">
               {tags.map((tags, index) => (
@@ -97,12 +97,12 @@ function Work() {
                       <img src={urlFor(work.image.asset.url)} alt={work.name} />
                       <div className="work__icon">
                         <motion.div>
-                          <a href={work.linksource} aria-label="sourcecode">
+                          <a href={work.linksource}>
                             <FaGithub />
                           </a>
                         </motion.div>
                         <motion.div>
-                          <a href={work.linkdemo} aria-label="demo">
+                          <a href={work.linkdemo}>
                             <FaEye />
                           </a>
                         </motion.div>

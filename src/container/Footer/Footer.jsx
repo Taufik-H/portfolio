@@ -44,10 +44,10 @@ const Footer = () => {
     >
       <div className="app__footer-content">
         <div className="text__title-dark">
-          <h4>
+          <h1>
             Take A <span className="text-primary">Coffe{''}</span>&{' '}
             <span>Chat</span> With Me
-          </h4>
+          </h1>
         </div>
         <div className="footer__contact">
           <div className="footer__button">

@@ -28,10 +28,10 @@ const Testimonial = () => {
           >
             <div className="app__testimonial-content">
               <div className="text__title-dark">
-                <h4>
+                <h1>
                   {' '}
                   What <span> people's</span> say{' '}
-                </h4>
+                </h1>
               </div>
               <motion.div
                 transition={{

@@ -25,15 +25,15 @@ const Skills = () => {
     >
       <div className="">
         <div className="text__title-dark" style={{ marginTop: 50 }}>
-          <h4>
+          <h1>
             {' '}
             i can make <span>something cool</span> with{' '}
-          </h4>
+          </h1>
         </div>
         <div className="app__skills-content">
           <div className="app__skills-tech">
             <div className="app__skills-tech__title">
-              <h5>Technology Stack</h5>
+              <p>Technology Stack</p>
 
               <Typewriter
                 words={writer}
@@ -71,7 +71,7 @@ const Skills = () => {
               <div className="app__skills-tech_exp">
                 <img src={urlFor(item.image)} alt="" />
                 <div className="level">
-                  <h6>{item.title}</h6>
+                  <h2>{item.title}</h2>
                   <p>{item.totalprojects}</p>
                 </div>
               </div>
