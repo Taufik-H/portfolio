@@ -43,7 +43,7 @@ const Footer = () => {
               categoryId="DIC_kwDOI4xUZM4CUXjN"
               mapping="url"
               reactionsEnabled="1"
-              term="Welcome to @giscus/react component!"
+              term="Welcome to my portfolio!"
               emitMetadata="0"
               inputPosition="top"
               theme="preferred_color_scheme"

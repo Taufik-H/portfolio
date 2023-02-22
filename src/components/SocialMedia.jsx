@@ -10,7 +10,7 @@ function SocialMedia() {
         </a>
       </div>
       <div>
-        <a href="https://instagram.com/opikhere" aria-label="Instagram">
+        <a href="https://instagram.com/hai.opit" aria-label="Instagram">
           <BsInstagram />
         </a>
       </div>
