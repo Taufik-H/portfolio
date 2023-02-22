@@ -4,38 +4,8 @@ import { images } from '../../constant';
 import { client } from '../../client';
 import { AppWrap } from '../../wrapper';
 import { motion } from 'framer-motion';
+import Giscus from '@giscus/react';
 const Footer = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  const { name, email, message } = formData;
-
-  const handleChangeInput = (e) => {
-    const { name, value } = e.target;
-
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = () => {
-    setLoading(true);
-
-    const contact = {
-      _type: 'contact',
-      name: name,
-      email: email,
-      message: message,
-    };
-
-    client.create(contact).then(() => {
-      setLoading(false);
-      setIsFormSubmitted(true);
-    });
-  };
   return (
     <motion.div
       whileInView={{ y: [100, 50, 0], opacity: [0, 0, 1] }}
@@ -64,48 +34,23 @@ const Footer = () => {
               <a href="https://wa.me/6283842061886">(+62) 838-4206-1886</a>
             </div>
           </div>
-          <h5>or</h5>
-          {!isFormSubmitted ? (
-            <div className="app__footer-form app__flex">
-              <div>
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  value={name}
-                  onChange={handleChangeInput}
-                  name="name"
-                />
-              </div>
-              <div>
-                <input
-                  type="email"
-                  placeholder="Your Email"
-                  value={email}
-                  onChange={handleChangeInput}
-                  name="email"
-                />
-              </div>
-              <div>
-                <textarea
-                  name="message"
-                  className=""
-                  value={message}
-                  placeholder="Your Massage"
-                  onChange={handleChangeInput}
-                ></textarea>
-              </div>
-              <button type="button" onClick={handleSubmit}>
-                {loading ? 'sending' : 'Send Message'}
-              </button>
-            </div>
-          ) : (
-            <div className="thanks">
-              <h4>I just wanna say</h4>
-              <div className="image_thanks">
-                <img src={images.thanks} alt="thanks" />
-              </div>
-            </div>
-          )}
+          <div className="app__footer-form app__flex">
+            <Giscus
+              id="comments"
+              repo="Taufik-H/portfolio"
+              repoId="R_kgDOI4xUZA"
+              category="Comment"
+              categoryId="DIC_kwDOI4xUZM4CUXjN"
+              mapping="url"
+              reactionsEnabled="1"
+              term="Welcome to @giscus/react component!"
+              emitMetadata="0"
+              inputPosition="top"
+              theme="preferred_color_scheme"
+              lang="en"
+              loading="lazy"
+            />
+          </div>
         </div>
 
         <div className="copyright">
