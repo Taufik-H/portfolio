@@ -56,9 +56,7 @@ const Testimonial = () => {
                     <h5>{testimonial[currentIndex].jobdesk}</h5>
                   </div>
                   <p>"{testimonial[currentIndex].feedback}"</p>
-//                   <div className="testimonial__date">
-//                     <AiOutlineLine /> February 1, 2023 <AiOutlineLine />
-//                   </div>
+
                 </div>
               </motion.div>
               <div className="app__testimonial-btn">
