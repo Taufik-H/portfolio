@@ -59,7 +59,7 @@ const Testimonial = () => {
 
                 </div>
               </motion.div>
-              <div className="app__testimonial-btn">
+              <div className="app__testimonial-btn mb-9">
                 <motion.div
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.9 }}
