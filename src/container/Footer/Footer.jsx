@@ -27,12 +27,6 @@ const Footer = () => {
               </div>
               <a href="mailto:taufikh.dev@gmail.com">taufikh.dev@gmail.com</a>
             </div>
-//             <div className="number__btn">
-//               <div className="btn-image">
-//                 <img src={images.whatsapp} alt="" />
-//               </div>
-//               <a href="https://wa.me/6283842061886">(+62) 838-4206-1886</a>
-//             </div>
           </div>
           <div className="app__footer-form app__flex">
             <Giscus
